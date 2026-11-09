@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Default theme colours as "R G B" triplets — overridden at runtime from settings.theme */
+  :root {
+    --color-brand: 124 58 237; /* #7c3aed */
+    --color-brand-light: 167 139 250;
+    --color-brand-dark: 91 33 182;
+    --color-accent: 236 72 153; /* #ec4899 */
+    --color-accent-light: 244 114 182;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Anchor jumps land below the fixed navbar */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+    /* Safety net: never allow sideways scrolling at any width (320px → 1920px+) */
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Gradient text using the owner's theme colours */
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-brand via-brand-light to-accent bg-clip-text text-transparent;
+  }
+  /* Primary call-to-action gradient */
+  .bg-gradient-brand {
+    @apply bg-gradient-to-r from-brand to-accent;
+  }
+}
+
+/* Custom scrollbar (desktop browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-brand) / 0.7);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-brand));
+}
+
+@layer components {
+  /* Hide scrollbars on overflow containers that scroll only as a safety net (navbar links, gallery strip) */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

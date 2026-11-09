@@ -1,0 +1,46 @@
+{
+  "name": "vino-portfolio-server",
+  "version": "1.0.0",
+  "description": "Backend API (Express + MongoDB + GridFS) for the portfolio and its admin dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "dev:memory": "node scripts/devMemory.js",
+    "seed": "node seed/seeder.js",
+    "seed:reset": "node seed/seeder.js --reset",
+    "seed:destroy": "node seed/seeder.js --destroy",
+    "cleanup:files": "node scripts/cleanupFiles.js",
+    "test": "node --test --test-concurrency=1 test/api.test.js"
+  },
+  "keywords": [
+    "mern",
+    "portfolio",
+    "express",
+    "nodejs",
+    "mongodb",
+    "rest-api"
+  ],
+  "author": "Vinothalakshmi M",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "multer": "^2.5.0",
+    "nodemailer": "^6.10.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.3.0"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}

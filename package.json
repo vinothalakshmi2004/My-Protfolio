@@ -1,0 +1,29 @@
+{
+  "name": "vino-portfolio-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Developer portfolio with a full admin dashboard (MERN + GridFS)",
+  "scripts": {
+    "server:install": "npm --prefix server install",
+    "server:dev": "npm --prefix server run dev",
+    "server:dev:memory": "npm --prefix server run dev:memory",
+    "server:seed": "npm --prefix server run seed",
+    "server:test": "npm --prefix server test",
+    "server:cleanup-files": "npm --prefix server run cleanup:files",
+    "client:install": "npm --prefix client install",
+    "client:dev": "npm --prefix client run dev",
+    "client:build": "npm --prefix client run build",
+    "client:preview": "npm --prefix client run preview"
+  },
+  "keywords": [
+    "mern",
+    "portfolio",
+    "react",
+    "vite",
+    "express",
+    "mongodb",
+    "tailwind"
+  ],
+  "author": "Vinothalakshmi M",
+  "license": "ISC"
+}

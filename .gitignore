@@ -1,0 +1,17 @@
+# Dependencies & builds
+node_modules/
+dist/
+
+# Secrets — never commit (use .env.example as the template)
+.env
+.env.*
+!.env.example
+
+# Local database backups / dumps (contain personal data and files)
+backups/
+dump/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,35 @@
+services:
+  # Backend REST API (Express + MongoDB + GridFS file storage)
+  - type: web
+    name: vino-portfolio-server
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Set in the Render dashboard (MongoDB Atlas connection string)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_URL
+        value: "*" # tip: set to your Vercel URL (e.g. https://your-portfolio.vercel.app) to restrict CORS
+      - key: EMAIL_SERVICE
+        value: gmail
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: ADMIN_EMAIL
+        value: vinothalakshmi7@gmail.com
+      - key: ADMIN_PASSWORD
+        sync: false # used only by `npm run seed` when no admin exists yet
+      - key: MAX_IMAGE_MB
+        value: "5"
+      - key: MAX_PDF_MB
+        value: "10"
